@@ -36,8 +36,8 @@ Usage
 	$column = $this->shin->findColumnAndTable('table_name');
 	// Call the query, and the table will join by itself without having to mention the relation table 
 	$this->gm->leftJoinTable('table_name', $column)->result();
+	// Produce = $this->db->join->table('table_relation','table_relation.id_relation = table_name.id_relation','left'); 
 
-	
 Note
 ~~~~~~~~~~~~~~~~~~~~~
 table columns must begin with "id_", the foreign key column and the primary key column must be the same. For more details, please see the example.
