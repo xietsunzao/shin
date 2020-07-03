@@ -23,6 +23,11 @@
                 <?php echo anchor('multi', 'click here!') ?>
             </p>
         </li>
+        <li> Complex Join Tables (sale, product, category & orders)
+            <p>
+                <?php echo anchor('multi', 'click here!') ?>
+            </p>
+        </li>
     </u>
 </body>
 

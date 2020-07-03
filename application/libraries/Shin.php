@@ -6,7 +6,6 @@
  */
 class Shin
 {
-    public $message;
     protected $table;
     protected $ci;
     public function __construct()
@@ -22,14 +21,14 @@ class Shin
             $foreign = stripos($r->name, $id);
             if ($r->primary_key === 0 && $foreign === 0) {
                 $table = explode('_', $r->name);
-                $check[] =
+                $main[] =
                     [
                         'table' => $table[1],
                         'column' => $r->name,
                     ];
             }
         }
-        return $check ?? NULL; 
+        return $main ?? NULL;
     }
 
     public function findColumn($table)
@@ -37,20 +36,6 @@ class Shin
         $getColumn =  $this->ci->db->field_data($table);
         foreach ($getColumn as $r) {
             if ($r->primary_key === 0) {
-                $col[] =
-                    [
-                        'column' => $r->name,
-                    ];
-            }
-        }
-        return $col;
-    }
-
-    public function findColumnWithoutUpload($table)
-    {
-        $getColumn =  $this->ci->db->field_data($table);
-        foreach ($getColumn as $r) {
-            if ($r->primary_key === 0 && $r->max_length < 100) {
                 $col[] =
                     [
                         'column' => $r->name,
