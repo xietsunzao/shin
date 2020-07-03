@@ -25,7 +25,7 @@
         </li>
         <li> Complex Join Tables (sale, product, category & orders)
             <p>
-                <?php echo anchor('multi', 'click here!') ?>
+                <?php echo anchor('complex', 'click here!') ?>
             </p>
         </li>
     </u>
