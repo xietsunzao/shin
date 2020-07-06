@@ -44,4 +44,19 @@ class Shin
         }
         return $col;
     }
+
+
+    public function findPrimaryKey($table)
+    {
+        $getColumn =  $this->ci->db->field_data($table);
+        foreach ($getColumn as $r) {
+            if ($r->primary_key === 1) {
+                $col[] =
+                    [
+                        'column' => $r->name,
+                    ];
+            }
+        }
+        return $col;
+    }
 }

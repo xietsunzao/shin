@@ -13,9 +13,14 @@
         Simple dynamic join tables:
     </p>
     <u>
-        <li>2 Join Table (product & category)
+        <li>2 Join Tables (product & category)
             <p>
                 <?php echo anchor('example', 'click here!') ?>
+            </p>
+        </li>
+        <li>Join Tables & Where statement [PK = id_product] (product & category)
+            <p>
+                <?php echo anchor('example/where/1', 'click here!') ?>
             </p>
         </li>
         <li> Multi Join Tables (product, category & orders)

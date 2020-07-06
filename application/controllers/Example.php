@@ -16,6 +16,7 @@ class Example extends CI_Controller
         $this->load->model('Global_model', 'gm');
         $this->load->library('Shin');
         $this->column = $this->shin->findColumnAndTable($this->table);
+        $this->id = $this->uri->segment(3);
     }
 
     public function index()
@@ -26,6 +27,26 @@ class Example extends CI_Controller
             'title' => $this->title
         ];
         $this->load->view('example/list', $data);
+    }
+
+    public function where()
+    {
+        $getRow = $this->gm->leftJoinWhere($this->table, $this->column, $this->id);
+        if ($getRow->num_rows() > 0) {
+            $row = $getRow->row();
+            $data = [
+                'title' => 'Join Tables Where Statement (PK)',
+                'product_name' => $row->product_name,
+                'category_name' => $row->category_name,
+                'price' => $row->price,
+                'id_category' => $row->id_category,
+                'id_product' => $row->id_product
+            ];
+            $this->load->view('example/where', $data);
+        } else {
+            redirect('home');
+            echo "row not found!";
+        }
     }
 }
 
